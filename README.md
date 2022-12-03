@@ -79,10 +79,19 @@ Note: Python2 is not supported.
    git clone https://github.com/citb0in/range_slicer.git
    ```
    
-3. ```sh
+3. Either make the python program executable
+   ```sh
    chmod +x ./range_slicer.py
    ```
-
+   and run it by
+   ```sh
+   ./range_slicer.py
+   ```
+   
+   or just execute it by
+   ```sh
+   python3 range_slicer.py
+   ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -120,6 +129,7 @@ Display version
 
 - [x] Add Changelog
 - [x] Add back to top links
+- [ ] Implement input validation
 - [ ] Add "non-overlapping range edges" function to n-slices mode
 - [ ] Add hex support
 - [ ] Multi-language Support
