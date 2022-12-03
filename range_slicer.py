@@ -22,6 +22,11 @@ if len(sys.argv)==1: parser.print_help(), sys.exit(1)
 args = parser.parse_args()
 start, end, chunkmode, number, noverlap = args.range[0], args.range[1], args.chunkmode, args.number, args.noverlap
 
+# input validation
+assert 0 <= start, "range start cannot be a negative number"
+assert start < end, "range start cannot be greater than or equal range end"
+assert 0 < number <= (end-start)+1, "n cannot be greater than or equal range size, please reduce n"
+
 def nslice(r, n):
     quotient, remainder = divmod(len(r), n)
     if noverlap:    
