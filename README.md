@@ -129,7 +129,7 @@ Display version
 
 - [x] Add Changelog
 - [x] Add back to top links
-- [ ] Implement input validation
+- [x] Implement input validation
 - [ ] Add "non-overlapping range edges" function to n-slices mode
 - [ ] Add hex support
 - [ ] Multi-language Support
