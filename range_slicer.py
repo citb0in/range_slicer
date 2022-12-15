@@ -10,17 +10,26 @@ import sys
 import pprint
 from argparse import ArgumentParser
 
-parser = ArgumentParser(description='Slices a pre-defined range into n equal parts or in given chunk size', epilog='2022-12-02 v1.0 by citb0in')
+parser = ArgumentParser(description='Slices a pre-defined range into n equal parts or in given chunk size', epilog='2022-12-15 v1.01 by citb0in')
 requiredName = parser.add_argument_group('required named arguments')
-requiredName.add_argument("-r", "--range", help = "lower and upper range limits, decimal or hex supported", required=True, type=int, nargs=2)
+requiredName.add_argument("-r", "--range", help = "lower and upper range limits, decimal or hex supported", required=True, nargs=2)
 parser.add_argument("-c", "--chunkmode", help = "range generation based on 'chunksize' instead of 'parts'", action="store_true", dest="chunkmode")
 parser.add_argument("-n", "--number", help = "create n slices (or n-sized chunks when in chunkmode), default : 2", type=int, default='2')
 parser.add_argument("-nov", "--noverlap", help = "non-overlapping range edges", action="store_true")
-parser.add_argument("-V", "--version", action="version", version="%(prog)s v1.0 by citb0in")
+parser.add_argument("-V", "--version", action="version", version="%(prog)s v1.01 by citb0in")
 
 if len(sys.argv)==1: parser.print_help(), sys.exit(1)
 args = parser.parse_args()
 start, end, chunkmode, number, noverlap = args.range[0], args.range[1], args.chunkmode, args.number, args.noverlap
+
+try: start = int(args.range[0])
+except:
+  try: start = int(args.range[0], 16)
+  except: exit(-1)
+try: end = int(args.range[1])
+except:
+  try: end = int(args.range[1], 16)
+  except: exit(-1)
 
 # input validation
 assert 0 <= start, "range start cannot be a negative number"
