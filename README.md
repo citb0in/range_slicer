@@ -131,7 +131,7 @@ Display version
 - [x] Add back to top links
 - [x] Implement input validation
 - [ ] Add "non-overlapping range edges" function to n-slices mode
-- [ ] Add hex support
+- [x] Add hex support
 - [ ] Multi-language Support
     - [ ] Spanish
     - [ ] French
